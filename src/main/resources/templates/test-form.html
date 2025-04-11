@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un Test</title>
+</head>
+<body>
+<h1>Ajouter un Test</h1>
+
+<form th:action="@{/saveTest}" th:object="${test}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <div>
+        <label for="titre">Titre :</label>
+        <input type="text" th:field="*{titre}" id="titre" required />
+    </div>
+
+    <div>
+        <label for="description">Description :</label>
+        <input type="text" th:field="*{description}" id="description" required />
+    </div>
+
+    <div>
+        <label for="duration">Durée :</label>
+        <input type="number" th:field="*{duration}" id="duration" required />
+    </div>
+
+    <div>
+        <label for="niveau">Niveau :</label>
+        <select th:field="*{niveau}" id="niveau" required>
+            <option value="débutant">Débutant</option>
+            <option value="intermédiaire">Intermédiaire</option>
+            <option value="avancé">Avancé</option>
+        </select>
+    </div>
+
+    <button type="submit">Ajouter</button>
+</form>
+</body>
+</html>
